@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_palette_diary/src/controller/bottom_nav_controller.dart';
+import 'package:flutter_getx_palette_diary/src/pages/write.dart';
 import 'package:flutter_getx_palette_diary/src/widget/image_data.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,18 @@ class App extends GetView<BottomNavController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('palette'),
+          elevation: 0.0,
+        ),
         body: _body(),
+        floatingActionButton: controller.index == 0
+            ? _floatingActionButton()
+            : null, // 첫 번째 페이지에서만 버튼 표시
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.endFloat, // 추가: 오른쪽 하단 버튼
+
         bottomNavigationBar: _bottom(),
       ),
     );
@@ -48,7 +60,7 @@ class App extends GetView<BottomNavController> {
       index: controller.index,
       children: [
         Container(
-          color: Colors.green,
+          color: Colors.white,
         ),
         Container(
           color: Colors.yellow,
@@ -57,6 +69,15 @@ class App extends GetView<BottomNavController> {
           color: Colors.red,
         ),
       ],
+    );
+  }
+
+  Widget _floatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        Get.to(Write());
+      },
+      child: const Icon(Icons.create_outlined),
     );
   }
 }
