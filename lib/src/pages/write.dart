@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_palette_diary/src/app.dart';
+import 'package:flutter_getx_palette_diary/src/controller/write_controller.dart';
+import 'package:flutter_getx_palette_diary/src/widget/write_textfild.dart';
 import 'package:get/get.dart';
 
-class Write extends StatelessWidget {
+class Write extends GetView<writeController> {
   const Write({super.key});
 
   @override
@@ -14,7 +15,7 @@ class Write extends StatelessWidget {
           elevation: 0.0,
           leading: IconButton(
             onPressed: () {
-              Get.to(App());
+              controller.backhome();
             },
             icon: const Icon(Icons.arrow_back),
           ),
@@ -22,7 +23,7 @@ class Write extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Get.to(App());
+                  controller.backhome();
                 },
                 icon: const Icon(Icons.check)),
           ],
@@ -44,17 +45,7 @@ class Write extends StatelessWidget {
               ),
               const Padding(
                 padding: EdgeInsets.all(27.0),
-                child: TextField(
-                  style: TextStyle(fontSize: 20),
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      fillColor: Colors.white,
-                      filled: true,
-                      labelText: '코멘트를 달아주세요.',
-                      focusedBorder: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
-                ),
+                child: writeTextfild(),
               )
             ],
           ),
