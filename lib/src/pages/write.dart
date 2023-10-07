@@ -45,7 +45,7 @@ class Write extends GetView<writeController> {
               ),
               const Padding(
                 padding: EdgeInsets.all(27.0),
-                child: writeTextfild(),
+                child: WriteTextfild(),
               )
             ],
           ),

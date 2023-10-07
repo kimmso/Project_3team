@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class writeTextfild extends StatelessWidget {
-  const writeTextfild({super.key});
+class WriteTextfild extends StatelessWidget {
+  const WriteTextfild({super.key});
 
   @override
   Widget build(BuildContext context) {

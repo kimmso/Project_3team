@@ -13,7 +13,7 @@ class App extends GetView<BottomNavController> {
       () => Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('palette'),
+          title: const Text('palette'),
           elevation: 0.0,
         ),
         body: _body(),
