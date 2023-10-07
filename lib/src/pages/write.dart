@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_palette_diary/src/controller/write_controller.dart';
-import 'package:flutter_getx_palette_diary/src/widget/write_textfild.dart';
 import 'package:get/get.dart';
+
+import '../widget/write_textfild.dart';
 
 class Write extends GetView<WriteController> {
   const Write({super.key});
@@ -38,9 +39,21 @@ class Write extends GetView<WriteController> {
                 width: 350,
                 height: 300,
                 decoration: const BoxDecoration(color: Colors.grey),
-                child: const Icon(Icons.add_a_photo_outlined),
+                child: Obx(() {
+                  final selectedImage = controller.selectedImage.value;
+                  return selectedImage != null
+                      ? Image.file(selectedImage)
+                      : const Text('사진을 선택해 주세요.');
+                }),
               ),
-              const SizedBox(
+              FloatingActionButton(
+                onPressed: () {
+                  controller.pickImage();
+                },
+                tooltip: '사진 선택',
+                child: Icon(Icons.add_a_photo),
+              ),
+              SizedBox(
                 height: 20,
               ),
               const Padding(

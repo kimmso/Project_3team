@@ -76,7 +76,7 @@ class App extends GetView<BottomNavController> {
   Widget _floatingActionButton() {
     return FloatingActionButton(
       onPressed: () {
-        Get.to(() => const Write(), binding: WriteBinding());
+        Get.to(() => Write(), binding: WriteBinding());
       },
       child: const Icon(Icons.create_outlined),
     );
