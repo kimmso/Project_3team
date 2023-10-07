@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 
 import '../app.dart';
 
-class writeController extends GetxController {
+class WriteController extends GetxController {
   void backhome() {
-    Get.to(App());
+    Get.to(const App());
   }
 }

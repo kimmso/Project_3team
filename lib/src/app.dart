@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_palette_diary/src/binding/write_binding.dart';
 import 'package:flutter_getx_palette_diary/src/controller/bottom_nav_controller.dart';
 import 'package:flutter_getx_palette_diary/src/pages/write.dart';
 import 'package:flutter_getx_palette_diary/src/widget/image_data.dart';
@@ -75,7 +76,7 @@ class App extends GetView<BottomNavController> {
   Widget _floatingActionButton() {
     return FloatingActionButton(
       onPressed: () {
-        Get.to(Write());
+        Get.to(() => const Write(), binding: WriteBinding());
       },
       child: const Icon(Icons.create_outlined),
     );

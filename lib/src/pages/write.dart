@@ -3,7 +3,7 @@ import 'package:flutter_getx_palette_diary/src/controller/write_controller.dart'
 import 'package:flutter_getx_palette_diary/src/widget/write_textfild.dart';
 import 'package:get/get.dart';
 
-class Write extends GetView<writeController> {
+class Write extends GetView<WriteController> {
   const Write({super.key});
 
   @override
