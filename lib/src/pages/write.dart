@@ -31,36 +31,40 @@ class Write extends GetView<WriteController> {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 350,
-                height: 300,
-                decoration: const BoxDecoration(color: Colors.grey),
-                child: Obx(() {
-                  final selectedImage = controller.selectedImage.value;
-                  return selectedImage != null
-                      ? Image.file(selectedImage)
-                      : const Text('사진을 선택해 주세요.');
-                }),
-              ),
-              FloatingActionButton(
-                onPressed: () {
-                  controller.pickImage();
-                },
-                tooltip: '사진 선택',
-                child: Icon(Icons.add_a_photo),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(27.0),
-                child: WriteTextfild(),
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 350,
+                  height: 300,
+                  decoration: const BoxDecoration(color: Colors.grey),
+                  child: Stack(alignment: Alignment.bottomRight, children: [
+                    Obx(() {
+                      final selectedImage = controller.selectedImage.value;
+                      return selectedImage != null
+                          ? Image.file(selectedImage)
+                          : const Center(child: Text('사진을 선택해 주세요.'));
+                    }),
+                    IconButton(
+                      onPressed: () {
+                        controller.pickImage();
+                      },
+                      icon: const Icon(Icons.photo),
+                    ),
+                  ]),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(27.0),
+                  child: WriteTextfild(),
+                )
+              ],
+            ),
           ),
         ),
       ),

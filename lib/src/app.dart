@@ -59,24 +59,13 @@ class App extends GetView<BottomNavController> {
   Widget _body() {
     return IndexedStack(
       index: controller.index,
-      children: [
-        Container(
-          color: Colors.white,
-        ),
-        Container(
-          color: Colors.yellow,
-        ),
-        Container(
-          color: Colors.red,
-        ),
-      ],
     );
   }
 
   Widget _floatingActionButton() {
     return FloatingActionButton(
       onPressed: () {
-        Get.to(() => Write(), binding: WriteBinding());
+        Get.to(() => const Write(), binding: WriteBinding());
       },
       child: const Icon(Icons.create_outlined),
     );
