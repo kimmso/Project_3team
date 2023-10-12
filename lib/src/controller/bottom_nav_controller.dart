@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 
-enum Page { HOME, SEARCH, UPLOAD }
+enum Page { HOME, MYPAGE, UPLOAD }
 
 class BottomNavController extends GetxController {
   RxInt _pageIndex = 0.obs;
@@ -15,7 +15,7 @@ class BottomNavController extends GetxController {
     var page = Page.values[value];
     switch (page) {
       case Page.HOME:
-      case Page.SEARCH:
+      case Page.MYPAGE:
       case Page.UPLOAD:
         moveToPage(value);
     }

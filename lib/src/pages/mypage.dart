@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../controller/mypage_controller.dart';
 
 class MyPage extends StatelessWidget {
-  const MyPage({super.key});
+  final MyPageController controller =
+      Get.put(MyPageController()); // 컨트롤러 인스턴스 생성
+  MyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, mainAxisSpacing: 8.0, mainAxisExtent: 8.0),
-      itemBuilder: (context, index) {
-        return Container(
-          color: Colors.blueGrey,
-          alignment: Alignment.center,
-          child: Text('Item $index'),
-        );
-      },
-      itemCount: 20,
-    ));
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('palette'),
+        elevation: 0.0,
+      ),
+      body: _myFeeds(),
+    );
+  }
+
+  Widget _myFeeds() {
+    return GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, crossAxisSpacing: 1.0, mainAxisSpacing: 1.0),
+        itemCount: 50,
+        itemBuilder: (context, index) => Container(
+              color: Colors.blueGrey,
+            ));
   }
 }
